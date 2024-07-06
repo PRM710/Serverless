@@ -1,5 +1,6 @@
 # Serverless
 
+- Device should have Python 3.8 or more Pre-installed
 - Must have own AWS account to having "sendemail" function having the specific code
 ```
 import boto3
