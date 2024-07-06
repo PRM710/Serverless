@@ -1,0 +1,28 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: prakash710
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: idk
+service: email-service
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    SES_FROM_EMAIL: 'prakashprm710@gmail.com'  # Replace with your verified SES email address
+  region: ap-south-1  # Set your desired region (replace with your actual region)
+
+functions:
+  sendEmail:
+    handler: handler.send_email
+    events:
+      - http:
+          path: send-email
+          method: post
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
